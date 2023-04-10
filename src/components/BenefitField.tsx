@@ -22,7 +22,8 @@ export const BENEFITS = (data: Form) => {
 (8)  Logo 與 COSCUP Logo 聯名於會場桌前露出
 (9)  Keynote 演講廳垂吊布條
 (10) 會前派對贊助 (與 COSCUP 聯名）
-(11) 需要繳交的檔案：
+(11) 大會點心區桌旗曝光
+(12) 需要繳交的檔案：
     (I) 網站議程頁面廣告（按贊助等級比重播出），廣告規格如下：
         (a) 網頁廣告尺寸：200W x 800L(px),  1440W x 400L (px)  兩組（請詳見附件參考圖）
         (b) 圖片解析度解析度請設定在 72 dpi。
@@ -111,6 +112,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
         <li>Logo 與 COSCUP Logo 聯名於會場桌前露出</li>
         <li>Keynote 演講廳垂吊布條</li>
         <li>會前派對贊助（與 COSCUP 聯名）</li>
+        <li>大會點心區桌旗曝光</li>
         <li>需要繳交的檔案：</li>
         <ol>
           <li>網站議程頁面廣告（按贊助等級比重播出），廣告規格如下：</li>
