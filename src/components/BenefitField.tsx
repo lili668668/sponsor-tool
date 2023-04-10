@@ -4,7 +4,6 @@ import { Control, Controller, useWatch } from 'react-hook-form'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker'
-import { TITLE } from '../App'
 import { Form } from './Content'
 
 interface PropTyps {
@@ -13,7 +12,7 @@ interface PropTyps {
 
 export const BENEFITS = (data: Form) => {
   if (data.level?.value === '鈦金級') {
-    return `(1)  Logo 和公司介紹於 COSCUP 和 KCD 官網露出
+    return `(1)  Logo 和公司介紹於 COSCUP 官網露出
 (2)  COSCUP 社群網站宣傳
 (3)  Logo 於會場報到區迎賓背板曝光
 (4)  網站議程頁面廣告 (按贊助等級比重播出)
@@ -36,7 +35,7 @@ export const BENEFITS = (data: Form) => {
     (III) 上述檔案請於 ${format(data.textDeadline, 'yyyy-MM-dd')} 前提供`
   }
   if (data.level?.value === '鑽石級') {
-    return `(1)  Logo 和公司介紹於 COSCUP 和 KCD 官網露出
+    return `(1)  Logo 和公司介紹於 COSCUP 官網露出
 (2)  COSCUP 社群網站宣傳
 (3)  Logo 於會場報到區迎賓背板曝光
 (4)  網站議程頁面廣告 (按贊助等級比重播出)
@@ -56,7 +55,7 @@ export const BENEFITS = (data: Form) => {
     (III) 上述檔案請於 ${format(data.textDeadline, 'yyyy-MM-dd')} 前提供`
   }
   if (data.level?.value === '黃金級') {
-    return `(1)  Logo 和公司介紹於 COSCUP 和 KCD 官網露出
+    return `(1)  Logo 和公司介紹於 COSCUP 官網露出
 (2)  COSCUP 社群網站宣傳
 (3)  Logo 於會場報到區迎賓背板曝光
 (4)  網站議程頁面廣告 (按贊助等級比重播出)
@@ -75,7 +74,7 @@ export const BENEFITS = (data: Form) => {
     (III) 上述檔案請於 ${format(data.textDeadline, 'yyyy-MM-dd')} 前提供`
   }
   if (data.level?.value === '白銀級' || data.level?.value === '青銅級') {
-    return `(1)  Logo 和公司介紹於 COSCUP 和 KCD 官網露出
+    return `(1)  Logo 和公司介紹於 COSCUP 官網露出
 (2)  COSCUP 社群網站宣傳
 (3)  Logo 於會場報到區迎賓背板曝光
 (4)  網站議程頁面廣告 (按贊助等級比重播出)
@@ -88,7 +87,7 @@ export const BENEFITS = (data: Form) => {
     (II) 上述檔案請於 ${format(data.textDeadline, 'yyyy-MM-dd')} 前提供`
   }
   if (data.level?.value === '好朋友級') {
-    return `(1)  Logo 和公司介紹於 COSCUP 和 KCD 官網露出
+    return `(1)  Logo 和公司介紹於 COSCUP 官網露出
 (2)  COSCUP 社群網站宣傳
 (3)  Logo 於會場報到區迎賓背板曝光`
   }
@@ -102,7 +101,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
   if (level?.value === '鈦金級') {
     return (
       <ol>
-        <li>Logo 和公司介紹於 COSCUP 和 KCD 官網露出</li>
+        <li>Logo 和公司介紹於 COSCUP 官網露出</li>
         <li>COSCUP 社群網站宣傳</li>
         <li>Logo 於會場報到區迎賓背板曝光</li>
         <li>網站議程頁面廣告（按贊助等級比重播出）</li>
@@ -174,7 +173,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
   if (level?.value === '鑽石級') {
     return (
       <ol>
-        <li>Logo 和公司介紹於 COSCUP 和 KCD 官網露出</li>
+        <li>Logo 和公司介紹於 COSCUP 官網露出</li>
         <li>COSCUP 社群網站宣傳</li>
         <li>Logo 於會場報到區迎賓背板曝光</li>
         <li>網站議程頁面廣告（按贊助等級比重播出）</li>
@@ -243,7 +242,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
   if (level?.value === '黃金級') {
     return (
       <ol>
-        <li>Logo 和公司介紹於 COSCUP 和 KCD 官網露出</li>
+        <li>Logo 和公司介紹於 COSCUP 官網露出</li>
         <li>COSCUP 社群網站宣傳</li>
         <li>Logo 於會場報到區迎賓背板曝光</li>
         <li>網站議程頁面廣告（按贊助等級比重播出）</li>
@@ -311,7 +310,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
   if (level?.value === '白銀級' || level?.value === '青銅級') {
     return (
       <ol>
-        <li>Logo 和公司介紹於 COSCUP 和 KCD 官網露出</li>
+        <li>Logo 和公司介紹於 COSCUP 官網露出</li>
         <li>COSCUP 社群網站宣傳</li>
         <li>Logo 於會場報到區迎賓背板曝光</li>
         <li>網站議程頁面廣告（按贊助等級比重播出）</li>
@@ -353,7 +352,7 @@ const BenefitField: React.FC<PropTyps> = (props) => {
   if (level?.value === '好朋友級') {
     return (
       <ol>
-        <li>Logo 和公司介紹於 COSCUP 和 KCD 官網露出</li>
+        <li>Logo 和公司介紹於 COSCUP 官網露出</li>
         <li>COSCUP 社群網站宣傳</li>
         <li>Logo 於會場報到區迎賓背板曝光</li>
       </ol>

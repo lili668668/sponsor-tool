@@ -69,7 +69,7 @@ OCF 提供電子捐款收據作為收款憑證，如需電子發票（稅金外�
   ● 寄送地址（日後如 OCF 捐款滿額寄送禮所用）：
 
 3. 需要繳交的文件、日期
-  (1) 置放於 COSCUP 和 KCD 官網的公司 LOGO：請提供向量檔
+  (1) 置放於 COSCUP 官網的公司 LOGO：請提供向量檔
   (2) 公司介紹： 中文和英文
   (3) 公司官方網址
   (4) 繳交時限：${format(data.deadline, 'yyyy-MM-dd')}
@@ -196,7 +196,7 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
               </ul>
               <p>3. 需要繳交的文件、日期</p>
               <ol>
-                <li>置放於 COSCUP 和 KCD 官網的公司 LOGO：請提供向量檔</li>
+                <li>置放於 COSCUP 官網的公司 LOGO：請提供向量檔</li>
                 <li>公司介紹： 中文和英文</li>
                 <li>公司官方網址</li>
                 <li>
