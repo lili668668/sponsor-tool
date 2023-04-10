@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import AppBar from './components/AppBar'
 import Content from './components/Content'
 
-export const TITLE = 'COSCUP'
+export const TITLE = 'COSCUP 2023'
 
 const App: React.FC = () => {
   return (
