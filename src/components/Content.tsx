@@ -23,6 +23,8 @@ const useStyles = makeStyles(() => createStyles({
 }))
 
 export interface Form {
+  year: string
+  receiver: string
   company: string
   level?: { value: string, label: string }
   fee?: number
@@ -46,7 +48,8 @@ const Content: React.FC = () => {
   const onSubmit: SubmitHandler<Form> = useCallback((data) => {
     console.log(data.extra)
     setText(
-`非常感謝${data.company}支持 ${TITLE}！
+`Dear ${data.receiver}
+非常感謝${data.company}支持 COSCUP ${data.year}！
 成為${data.level?.value}贊助商，
 費用為：TWD ${formatCash(data.fee)}。
 以下為其他資訊：
@@ -64,7 +67,7 @@ OCF 提供電子捐款收據作為收款憑證，如需電子發票（稅金外�
   ● 捐款金額： TWD ${formatCash(data.fee)}
   ● 捐款徵信顯示的名稱：
       ● 顯示名稱請參考捐款徵信顯示列表：https://blog.ocf.tw/search/label/%E6%8D%90%E6%AC%BE%E5%BE%B5%E4%BF%A1
-  ● 指定用途：${TITLE}
+  ● 指定用途：COSCUP ${data.year}
   ● 收件人（日後如 OCF 捐款滿額寄送禮所用）：
   ● 寄送地址（日後如 OCF 捐款滿額寄送禮所用）：
 
@@ -74,7 +77,7 @@ OCF 提供電子捐款收據作為收款憑證，如需電子發票（稅金外�
   (3) 公司官方網址
   (4) 繳交時限：${format(data.deadline, 'yyyy-MM-dd')}
 
-4. ${TITLE} 活動官網製作中，待收到贊助款項，會將贊助商 Logo 依照入款時間置放於官網首頁處。
+4. COSCUP ${data.year} 活動官網製作中，待收到贊助款項，會將贊助商 Logo 依照入款時間置放於官網首頁處。
 
 5. ${data.level?.value ?? ''}贊助福利
 ${BENEFITS(data)}
@@ -82,7 +85,7 @@ ${BENEFITS(data)}
 ${data.extra ? `加購：
 ${data.extra.map((item) => item.value).join('\n')}` : ''}
 
-贊助組代表大會再次感謝${data.company}支持 ${TITLE}！
+贊助組代表大會再次感謝${data.company}支持 COSCUP ${data.year}！
 若有任何問題，歡迎隨時與我們聯繫。
 `)
   }, [])
@@ -90,6 +93,18 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container direction="column" spacing={2}>
+          <Grid item container direction="row" alignItems="center" spacing={2}>
+            <Grid item>Dear</Grid>
+            <Grid item>
+              <Controller
+                name="receiver"
+                control={control}
+                render={(({ field }) => (
+                  <TextField label="窗口名稱" size="small" InputLabelProps={{ classes: { root: classes.label } }} {...field} />
+                ))}
+              />
+            </Grid>
+          </Grid>
           <Grid item container direction="row" alignItems="center" spacing={2}>
             <Grid item>非常感謝</Grid>
             <Grid item>
@@ -101,7 +116,16 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
                 ))}
               />
             </Grid>
-            <Grid item>支持 {TITLE}！</Grid>
+            <Grid item>支持 COSCUP </Grid>
+            <Grid item>
+              <Controller
+                name="year"
+                control={control}
+                render={(({ field }) => (
+                  <TextField label="年份" size="small" InputLabelProps={{ classes: { root: classes.label } }} {...field} />
+                ))}
+              />
+            </Grid>
           </Grid>
           <Grid item container direction="row" alignItems="center" spacing={2}>
             <Grid item>成為</Grid>
@@ -190,7 +214,20 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
                     </li>
                   </ul>
                 </li>
-                <li>指定用途：{TITLE}</li>
+                <li>
+                  <Box display="flex" alignItems="center">
+                    指定用途：COSCUP
+                    <Box paddingLeft={2}>
+                      <Controller
+                        name="year"
+                        control={control}
+                        render={(({ field }) => (
+                          <TextField size="small" InputLabelProps={{ classes: { root: classes.label } }} {...field} />
+                        ))}
+                      />
+                    </Box>
+                  </Box>
+                </li>
                 <li>收件人（日後如 OCF 捐款滿額寄送禮所用）：</li>
                 <li>寄送地址（日後如 OCF 捐款滿額寄送禮所用）：</li>
               </ul>
@@ -218,7 +255,21 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
                   </Box>
                 </li>
               </ol>
-              <p>4. {TITLE} 活動官網製作中，待收到贊助款項，會將贊助商 logo 依照入款時間置放於官網首頁處。</p>
+              <p>4.
+                <Box display="flex" alignItems="center">
+                  COSCUP
+                  <Box paddingLeft={2} paddingRight={2}>
+                    <Controller
+                      name="year"
+                      control={control}
+                      render={(({ field }) => (
+                        <TextField size="small" InputLabelProps={{ classes: { root: classes.label } }} {...field} />
+                      ))}
+                    />
+                  </Box>
+                  活動官網製作中，待收到贊助款項，會將贊助商 logo 依照入款時間置放於官網首頁處。
+                </Box>
+              </p>
               <BenefitWatched control={control} />
               <BenefitField control={control} />
             </Grid>
@@ -262,7 +313,17 @@ ${data.extra.map((item) => item.value).join('\n')}` : ''}
                 ))}
               />
             </Grid>
-            <Grid item>支持{TITLE}！</Grid>
+            <Grid item>支持 COSCUP </Grid>
+            <Grid item>
+              <Controller
+                name="year"
+                control={control}
+                render={(({ field }) => (
+                  <TextField size="small" InputLabelProps={{ classes: { root: classes.label } }} {...field} />
+                ))}
+              />
+            </Grid>
+            <Grid item>！</Grid>
           </Grid>
           <Grid item>
             若有任何問題，歡迎隨時與我們聯繫。
